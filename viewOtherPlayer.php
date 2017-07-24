@@ -188,7 +188,7 @@
         
 
         <div class="panel-profile-footer">
-               <p></p>
+          <p></p>
         </div>
       </div>
     </div>
