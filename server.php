@@ -153,10 +153,8 @@
         	$firstname = $row['FirstName'];
         	$lastname = $row['LastName'];
         	$email = $row['Email'];
-        	$address = $row['Address'];
         	$city = $row['City'];
         	$state = $row['State'];
-        	$zip = $row['Zip'];
         	$country = $row['Country'];
         }
        	echo '   <tr>
@@ -167,10 +165,6 @@
                     <td>Email:</td>
                     <td>'.$email.'</td>
                   </tr>
-                  <tr>
-                    <td>Address:</td>
-                    <td>'.$address.'</td>
-                  </tr>
                    <tr>
                     <td>City:</td>
                     <td>'.$city.'</td>
@@ -178,10 +172,6 @@
                   <tr>
                     <td>State/Province:</td>
                     <td>'.$state.'</td>
-                  </tr>
-                   <tr>
-                    <td>Postal Code:</td>
-                    <td>'.$zip.'</td>
                   </tr>
                   <tr>
                     <td>Country:</td>
