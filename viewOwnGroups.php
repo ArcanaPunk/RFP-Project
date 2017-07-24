@@ -1,4 +1,4 @@
-<?php include('server.php'); 
+<?php include('viewOwnGroupsServer.php'); 
 
   //Only users that are logged in can view this page
   if (empty($_SESSION['username'])) {
@@ -130,37 +130,17 @@
     <!-- Center Body -->
     <div class="col-sm-8 text-left">
 
-      <h2>My Groups:</h2>
+      <h2>Browse Groups:</h2>
 
-      <table style="text-align: center;"">
-        <tr>
-          <td>
-            <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
-            <h4><a href="viewOwnGroup.php">Group 1</a></h4>
-          </td>
-          <td>
-            <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
-            <h4>Group 2</h4>
-          </td>
-          <td>
-            <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
-            <h4>Group 3</h4>
-          </td>
-          <td>
-            <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
-            <h4>Group 4</h4>
-          </td>
-        </tr>
-        <tr>
-        <!--
-          <td colspan="2" style="text-align: left">
-            <a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Previous</a>
-          </td>
-          <td colspan="2" style="text-align: right">
-            <a href="#"><span class="glyphicon glyphicon-arrow-right"></span> Next</a>
-          </td>
-        -->
-        </tr>
+      <table style="text-align: center;">
+        
+
+          <?php 
+
+            echo $display;
+
+          ?>
+
       </table>
 
     </div>
