@@ -3,6 +3,8 @@
 
 	$Name = "";
 	//$UserID =0;
+	$city = "";
+	$state = "";
 	$GameID = "";
 	$Location = "";
 	$Day1 = "";
@@ -11,6 +13,8 @@
 	$Day2Time = "";
 	$Day3 = "";
 	$Day3Time = "";
+
+	$Description = "";
 	
 	$errors = array();
 	
@@ -50,6 +54,8 @@
 	//if the submit button is fired
 	if(isset($_POST['submitGroup'])) {
 		$Name = mysqli_real_escape_string($db, $_POST['Name']);
+		$city = mysqli_real_escape_string($db, $_POST['city']);
+		$state = mysqli_real_escape_string($db, $_POST['state']);
 		$GameID = mysqli_real_escape_string($db, $_POST['GameID']);
 		$Location = mysqli_real_escape_string($db, $_POST['Location']);
 		$Day1 = mysqli_real_escape_string($db, $_POST['Day1']);
@@ -58,17 +64,25 @@
 		$Day2Time = mysqli_real_escape_string($db, $_POST['Day2Time']);
 		$Day3 = mysqli_real_escape_string($db, $_POST['Day3']);
 		$Day3Time = mysqli_real_escape_string($db, $_POST['Day3Time']);
+		$Description = mysqli_real_escape_string($db, $_POST['desc']);
 		
 		//validate all fields
-		if (empty($Name)) {
+		if (empty($Name)) 
+		{
 			array_push($errors, "A group name is required");
 		}
 
-		if (count($errors) == 0) {
-			$grpSql = "INSERT INTO groups (Name, UserID, GameID, Location, Day1, Day1Time, Day2, Day2Time, Day3, Day3Time) VALUES ('$Name', '$UserID', '$GameID', '$Location', '$Day1', '$Day1Time', '$Day2', '$Day2Time', '$Day3', '$Day3Time')";
+		if (count($errors) == 0) 
+		{
+			$grpSql = "INSERT INTO groups (Name, UserID, City, State, GameID, MeetingPlace, Day1, Time1, Day2, Time2, Day3, Time3, Description) VALUES ('$Name', '$UserID', '$city', '$state', '$GameID', '$MeetingPlace', '$Day1', '$Day1Time', '$Day2', '$Day2Time', '$Day3', '$Day3Time', '$Description')";
 			$res = mysqli_query($db, $grpSql);
-			if (!$res) {
+			if (!$res) 
+			{
 				echo mysqli_error($db);
+			}
+			else
+			{
+				header('location: viewOwnGroups.php'); //Take to onboarding page after login
 			}
 			//header('location: viewOwnGroups.php'); //Take to mygroups after creation
 		}

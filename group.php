@@ -134,7 +134,7 @@
     <!-- Left Sidebar -->
     <div class="col-sm-2 sidenav" style="height:100%" align="left">
 
-      <form id="updateSearch">
+      <form id="updateSearch" method="post">
         <fieldset>
 
           <legend>Search Groups</legend>
@@ -213,7 +213,7 @@
                   <td width="30%"> <label>Game:</label> </td>
                   <td>
                     <select name="GameID" id="game" class="form-control">
-                      <option value="Default">Choose a Game</option>
+                      <option value="Default">Select a Game</option>
                       <?php echo $options;?>
                     </select>
                   </td>
@@ -222,22 +222,23 @@
                 <!-- Form box for Metting Place -->
                 <tr height="40">
                   <td width="30%"> <label>Meet at:</label> </td>
-                  <td>
-                    <select name="Location" id="meet" class="form-control">
+                  <td> 
+                    <select name="location" id="meetAt" class="form-control">
                       <option value="Default">Select a Place</option>
-                      <option value="home">At a player's place.</option>
-                      <option value="gameStore">At a game store.</option>
-                      <option value="online">Online</option>
+                      <option value="At a player's place.">At a player's place.</option>
+                      <option value="At a game store.">At a game store.</option>
+                      <option value="In person, but no preference.">In person, but no preference.</option>
+                      <option value="Online">Online</option>
                     </select>
                   </td>
                 </tr>
               
                 <!-- Form box for Day -->
                 <tr height="40">
-                  <td width="30%"> <label>Day:</label> </td>
+                  <td width="30%"> <label>Select a Day:</label> </td>
                   <td> 
                     <select name="day" id="day" class="form-control">
-                      <option value="Default">Day</option>
+                      <option value="Default">Select a Day</option>
                       <option value="Sunday">Sunday</option>
                       <option value="Monday">Monday</option>
                       <option value="Tuesday">Tuesday</option>

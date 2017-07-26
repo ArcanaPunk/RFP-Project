@@ -6,6 +6,7 @@
 	$city = "";
 	$state = "";	
 	$game = "";
+	$canGM = "";
 	$location = "";
 	$day = "";
 	$time = "";
@@ -42,12 +43,13 @@
 		$city = mysqli_real_escape_string($db, $_POST['city']);
 		$state = mysqli_real_escape_string($db, $_POST['state']);	
 		$game = mysqli_real_escape_string($db, $_POST['game']);
+		$canGM = mysqli_real_escape_string($db, $_POST['canGM']);
 		$location = mysqli_real_escape_string($db, $_POST['location']);
 		$day = mysqli_real_escape_string($db, $_POST['day']);
 		$time = mysqli_real_escape_string($db, $_POST['time']);
 
-    	$display = displayWithSearch($city, $state, $game, $location, $day, $time);//displayWithSearch($city, $state, $game, $location, $day, $time);
-	}
+    	$display = displayWithSearch($city, $state, $game, $canGM, $location, $day, $time);
+    }
 
 	if ($searched == 0)
 	{
@@ -55,7 +57,7 @@
 	}
 
 	// displays the stuff after a search
-	function displayWithSearch($city, $state, $game, $location, $day, $time)
+	function displayWithSearch($city, $state, $game, $canGM, $location, $day, $time)
 	{
 		$out = "";			
 
@@ -75,6 +77,10 @@
 	    		if ($game != "Default")
     			{
     				$sql = $sql . " AND Game = '$game'";
+    			}
+    			if ($canGM != "Default")
+    			{
+    				$sql = $sql . " AND CanGM = '$canGM'";
     			}
 	    		if ($location != "Default")
 				{
@@ -97,6 +103,10 @@
     			{
     				$sql = $sql . " AND Game = '$game'";
     			}
+    			if ($canGM != "Default")
+    			{
+    				$sql = $sql . " AND CanGM = '$canGM'";
+    			}
 	    		if ($location != "Default")
 				{
 					$sql = $sql . " AND MeetingPlace = '$location'";
@@ -114,6 +124,10 @@
 			{
 				$sql = $sql . " WHERE Game = '$game'";
 
+				if ($canGM != "Default")
+    			{
+    				$sql = $sql . " AND CanGM = '$canGM'";
+    			}
 				if ($location != "Default")
 				{
 					$sql = $sql . " AND MeetingPlace = '$location'";
@@ -127,6 +141,24 @@
 					$sql = $sql . " AND (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
 				}
 			}
+			elseif ($canGM != "Default")
+			{
+				$sql = $sql . " WHERE CanGM = '$canGM'";
+
+				if ($location != "Default")
+				{
+					$sql = $sql . " AND MeetingPlace = '$location'";
+				}
+				if ($day != "Default")
+				{
+					$sql = $sql . " AND (Day1 = '$day' OR Day2 = '$day' OR Day3 = '$day')";
+				}
+				if ($time != "Default")
+				{
+					$sql = $sql . " AND (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
+				}
+			}
+
 			elseif ($location != "Default")
 			{
 				$sql = $sql . " WHERE MeetingPlace = '$location'";
@@ -183,7 +215,10 @@
         	}
 	    }
 
+	    
+
 	    return $out;
+	    
 	}
 
 	// diplays the default search, right now it is just all users in the DB. Might set up a player default search later

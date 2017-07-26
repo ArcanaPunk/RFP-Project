@@ -117,7 +117,7 @@
     </div>
 
     <div class="col-sm-8 text-left"> 
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <form method="post" action="register.php">
           <fieldset>
             <legend><h2>Sign Up</h2></legend>
@@ -229,7 +229,7 @@
         </form>
       </div>
       
-      <div class=col-sm-4>
+      <div class=col-sm-6>
         <fieldset>
         <legend><h2>Login</h2></legend>
 

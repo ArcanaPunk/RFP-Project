@@ -129,109 +129,209 @@
 
     <!-- Center Body -->
     <div class="col-sm-8 text-left">
-      <form method="post" action="createGroup.php">
+      <div class="col-sm-6">
+        <form method="post" action="createGroup.php">
 
         <fieldset>
           
           <legend>Create Group</legend>
           <!-- display validation for form fields -->
             <?php include('errors.php'); ?>
-          <p>
-            <label>Group Name:</label><br/>
-            <input type="text" name="Name" id="Name"><br/><br/>
 
-            <label>Players:</label><br/>
-            <input type="text" name="players" id="players" placeholder="Usernames, separated by commas." size="50"><br/><br/>
+            <table>
+              <tr height="40">
+                <td width="10%"> <label>Group Name:</label> </td>
+                <td> <input type="text" name="Name" id="Name" class="form-control"> </td>
+              </tr>
 
-            <label>Games:</label><br/>
+              <!-- Form box for City -->
+                <tr height="40">
+                  <td width="30%"> <label>City:</label> </td>
+                  <td><input type="text" name="city" id="city" class="form-control"/></td>
+                </tr>
 
-            <select name="GameID" id="game">
-              <option value="Default">Select a Game</option>
-              <?php echo $options;?>
-            </select>
-            <br/><br/>
+                <!-- Form box for State -->
+                <tr height="40">
+                  <td width="30%"> <label>State:</label> </td>
+                  <td>
+                    <select name="state" id="state" class="form-control">
+                      <option value="Default">Choose a State.</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="DC">District Of Columbia</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                      <option value="IA">Iowa</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="ME">Maine</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WY">Wyoming</option>
+                    </select>
+                  </td>
+                </tr>
 
+              <tr height="40">
+                <td width="10%"> <label>Games:</label> </td>
+                <td> 
+                  <select name="GameID" id="game" class="form-control">
+                    <option value="Default">Select a Game</option>
+                    <?php echo $options;?>
+                  </select> 
+                </td>
+              </tr>
+              <tr height="40">
+                <td width="10%"> <label>Meet at:</label> </td>
+                <td> 
+                  <select name="Location" id="meetAt" class="form-control">
+                    <option value="Default">Select a Place</option>
+                    <option value="At a player's place.">At a player's place.</option>
+                    <option value="At a game store.">At a game store.</option>
+                    <option value="In person, but no preference.">In person, but no preference.</option>
+                    <option value="Online">Online</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="40">
+                <td width="10%">  <label>Day 1:</label> </td>
+                <td>
+                  <select name="Day1" id="Day1" class="form-control">
+                    <option value="Default">Day</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="40">
+                <td width="10%"> <label>Time 1:</label> </td>
+                <td>
+                  <select name="Day1Time" id="Day1Time" class="form-control">
+                    <option value="Default">Select a Time</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Night">Night</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="40">
+                <td width="10%"> <label>Day 2:</label> </td>
+                <td> 
+                  <select name="Day2" id="Day2" class="form-control">
+                    <option value="Default">Day</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="40">
+                <td width="10%"> <label>Time 2:</label> </td>
+                <td>
+                  <select name="Day2Time" id="Day2Time" class="form-control">
+                    <option value="Default">Select a Time</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Night">Night</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="40">
+                <td width="10%"> <label>Day 3:</label> </td>
+                <td> 
+                  <select name="Day3" id="Day3" class="form-control">
+                    <option value="Default">Day</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                  </select> 
+                </td>
+              </tr>
+              <tr height="40">
+                <td width="10%"> <label>Time 3:</label> </td>
+                <td> 
+                  <select name="Day3Time" id="Day3Time" class="form-control">
+                  <option value="Default">Select a Time</option>
+                  <option value="Morning">Morning</option>
+                  <option value="Afternoon">Afternoon</option>
+                  <option value="Evening">Evening</option>
+                  <option value="Night">Night</option>
+                  </select>
+                </td>
+              </tr>
+              <tr height="40">
+                <td> <label>Description:</label> </td>
+              </tr>
+              <tr>
+                <td colspan="2"> <textarea class="form-control" rows="10" name="desc" id="desc" maxlength="500" style="resize: none;"></textarea> </td>
+              </tr>
+              <tr height="40">
+                <td width="50%" align="center"> <button type="submit" name="submitGroup" class="btn">Submit</button> </td>
+                <td width="50%" align="center"> <button type="reset" class="btn">Reset</button> </td>
+              </tr>
 
-            <label>Meet at:</label><br/>
-            <select name="Location" id="meetAt">
-              <option value="Default">Select a Place</option>
-              <option value="home">At a player's place.</option>
-              <option value="gameStore">At a game store.</option>
-              <option value="online">Online</option>
-            </select><br/><br/>
+            </table>
 
-            <label>Times:</label><br/>
-            <label>1</label>
-            <select name="Day1" id="Day1">
-              <option value="Default">Day</option>
-              <option value="Sunday">Sunday</option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
-              <option value="Saturday">Saturday</option>
-            </select>
-            <label>Time:</label>
-            <select name="Day1Time" id="Day1Time">
-              <option value="Default">Select a Time</option>
-              <option value="Morning">Morning</option>
-              <option value="Afternoon">Afternoon</option>
-              <option value="Evening">Evening</option>
-              <option value="Night">Night</option>
-            </select>
-            <br/>
+            
 
-            <label>2</label>
-            <select name="Day2" id="Day2">
-              <option value="Default">Day</option>
-              <option value="Sunday">Sunday</option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
-              <option value="Saturday">Saturday</option>
-            </select>
-            <label>Time:</label>
-            <select name="Day2Time" id="Day2Time">
-              <option value="Default">Select a Time</option>
-              <option value="Morning">Morning</option>
-              <option value="Afternoon">Afternoon</option>
-              <option value="Evening">Evening</option>
-              <option value="Night">Night</option>
-            </select>
-            <br/>
-
-            <label>3</label>
-            <select name="Day3" id="Day3">
-              <option value="Default">Day</option>
-              <option value="Sunday">Sunday</option>
-              <option value="Monday">Monday</option>
-              <option value="Tuesday">Tuesday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Thursday">Thursday</option>
-              <option value="Friday">Friday</option>
-              <option value="Saturday">Saturday</option>
-            </select>
-            <label>Time:</label>
-            <select name="Day3Time" id="Day3Time">
-              <option value="Default">Select a Time</option>
-              <option value="Morning">Morning</option>
-              <option value="Afternoon">Afternoon</option>
-              <option value="Evening">Evening</option>
-              <option value="Night">Night</option>
-            </select>
-            <br/><br/>
-
-            <button type="submit" name="submitGroup" class="btn">Submit</button>
-
-          </p>
-
-        </fieldset>
+          </fieldset>
         
-      </form>
-
+        </form>
+      </div>
     </div>
 
     <!-- Right Sidebar -->

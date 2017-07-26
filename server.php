@@ -7,7 +7,6 @@
 	$last_name = "";
 	$city = "";
 	$state = "";
-	$country = "";
 	$errors = array();
 
 	//Connect to the database
@@ -21,11 +20,8 @@
 		$password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 		$first_name = mysqli_real_escape_string($db, $_POST['first_name']);
 		$last_name = mysqli_real_escape_string($db, $_POST['last_name']);
-		// $address = mysqli_real_escape_string($db, $_POST['address']);
 		$city = mysqli_real_escape_string($db, $_POST['city']);
 		$state = mysqli_real_escape_string($db, $_POST['state']);
-		// $zip = mysqli_real_escape_string($db, $_POST['zip']);
-		$country = mysqli_real_escape_string($db, $_POST['country']);
 
 		//validate all fields
 		if (empty($username)) {
@@ -52,7 +48,7 @@
 		if (count($errors) == 0) {
 			//hash the password to store the hashed value
 			$password = hash('sha256', $password_1);
-			$sql = "INSERT INTO User (Username, Email, Password, FirstName, LastName, City, State, Country) VALUES ('$username', '$email', '$password', '$first_name', '$last_name', '$city', '$state', '$country')";
+			$sql = "INSERT INTO User (Username, Email, Password, FirstName, LastName, City, State) VALUES ('$username', '$email', '$password', '$first_name', '$last_name', '$city', '$state')";
 			$res = mysqli_query($db, $sql);
 			if (!$res)
 			{
@@ -139,6 +135,23 @@
     function loadProfile()
     {
 
+    	$display = "";
+
+    	$firstname = "";
+		$city = "";
+		$state = "";
+		$country = "";
+		$game = "";
+		$canGM = "";
+		$meetingPlace = "";
+		$day1 = "";
+		$time1 = "";
+		$day2 = "";
+		$time2 = "";
+		$day3 = "";
+		$time3 = "";
+		$description = "";
+
         //Connect to the database
         $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
         $username = $_SESSION['username'];
@@ -149,38 +162,106 @@
         	die ("that username could not be found!");
         }
 
-        while($row = mysqli_fetch_array($userquery, MYSQLI_ASSOC)){
+        while($row = mysqli_fetch_array($userquery, MYSQLI_ASSOC))
+        {
         	$firstname = $row['FirstName'];
         	$lastname = $row['LastName'];
         	$email = $row['Email'];
-        	$city = $row['City'];
-        	$state = $row['State'];
-        	$country = $row['Country'];
-        }
-       	echo '   <tr>
-                    <td>Name:</td>
-                    <td>'.$firstname. ' ' . $lastname . '</td>
-                  </tr>
-                  <tr>
-                    <td>Email:</td>
-                    <td>'.$email.'</td>
-                  </tr>
-                   <tr>
-                    <td>City:</td>
-                    <td>'.$city.'</td>
-                  </tr>
-                  <tr>
-                    <td>State/Province:</td>
-                    <td>'.$state.'</td>
-                  </tr>
-                  <tr>
-                    <td>Country:</td>
-                    <td>'.$country.'</td>
-                  </tr>
-                  <tr>
-                  	<td>Description:</td>
-                  	<td> Once Descriptions are set up add them here. </td>
-                  </tr>';
+	    	$city = $row['City'];
+	    	$state = $row['State'];
+	    	$country = $row['Country'];
+		    $game = $row['Game'];
+		    $gameSQL = "SELECT Game FROM game WHERE GameID = '$game'";
+		    $canGM = $row['CanGM'];
+		    $meetingPlace = $row['MeetingPlace'];
+		    $day1 = $row['Day1'];
+		    $time1 = $row['Time1'];
+
+		    if (!is_null($row['Day2']))
+		    {
+		    	$day2 = $row['Day2'];
+	        	if (!is_null($row['Time2']))
+		        {
+		          $time2 = $row['Time2'];
+		        }
+		      }
+
+		    if (!is_null($row['Day3']))
+		    {
+		    	$day3 = $row['Day3'];
+
+		        if (!is_null($row['Time3']))
+		        {
+		          $time3 = $row['Time3'];
+		        }
+		    }
+
+      			$description = $row['Description'];
+    	}
+
+		$gameQuery = mysqli_query($db, $gameSQL);
+
+		$x = $gameQuery->fetch_assoc();
+
+	    
+	        $display = '<tr>
+	                    <td>Userame:</td>
+	                    <td>'. $username . '</td>
+	                  </tr>
+	       			  <tr>
+	                    <td>Name:</td>
+	                    <td>'. $firstname. ' ' . $lastname . '</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Email:</td>
+	                    <td>'. $email.'</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Location:</td>
+	                    <td> ' . $city . ', ' . $state . '</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Looking to play:</td>
+	                    <td> ' . $x['Game'] . '</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Can GM:</td>
+	                    <td>'. $canGM . '</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Times I can play:</td>
+	                    <td> ' . $day1 . ' ' . $time1 . '';
+
+		    if ($day2 != "")
+		    {
+		      $display =  $display . ', ' . $day2 . '';
+		      if ($time2 != "")
+		      {
+		        $display = $display . ' ' . $time2 . '';
+		      }
+		    }
+		    if ($day3 != "")
+		    {
+		      $display = $display . ', ' . $day3 . '';
+		      if ($time3 != "")
+		      {
+		        $display = $display . ' ' . $time3 . '';
+		      }
+		    }
+
+		    $display = $display . '</td>
+		                </tr>
+		                <tr>
+		                  <td>Description:</td>
+		                  <td> ' . $description . '  </td>
+		                </tr>
+		              </tbody>
+		            </table>
+		          </div>
+		        </div>
+		      </div>';
+
+		      echo $display;
     }
 
 ?>

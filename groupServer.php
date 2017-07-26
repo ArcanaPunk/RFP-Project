@@ -4,6 +4,13 @@
 
 	$display = "";
 
+	$city = "";
+	$state = "";	
+	$game = "";
+	$location = "";
+	$day = "";
+	$time = "";
+
 	//grab current session username
 	$username = $_SESSION['username'];
 
@@ -28,15 +35,19 @@
 
 	$searched = 0;
 
-	$display = displayWithoutSearch();
-
-	/* !!!!!!!!!!!!!!!!!!!! DOES NOT WORK YET !!!!!!!!!!!!!!!!!!!!!!
-
 	if(isset($_POST['submitSearch'])) 
 	{
     	$searched = 1;
 
-    	$display = displayWithoutSearch();
+    	// pull in data from form
+		$city = mysqli_real_escape_string($db, $_POST['city']);
+		$state = mysqli_real_escape_string($db, $_POST['state']);	
+		$game = mysqli_real_escape_string($db, $_POST['GameID']);
+		$location = mysqli_real_escape_string($db, $_POST['location']);
+		$day = mysqli_real_escape_string($db, $_POST['day']);
+		$time = mysqli_real_escape_string($db, $_POST['time']);
+
+    	$display = displayWithSearch($city, $state, $game, $location, $day, $time);
 	}
 
 	if ($searched == 0)
@@ -46,42 +57,139 @@
 
 	// displays the stuff after a search
 	
-	function displayWithSearch($city, $state)
+	function displayWithSearch($city, $state, $game, $location, $day, $time)
 	{
 		$out = "";			
 
-		//Connect to the database
+	    //Connect to the database
 	    $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
 
-	    $sql = "SELECT Name FROM groups WHERE City = '$city' AND State = '$state'";
+	    $sql = "SELECT Name FROM groups";
 
-	    $name = $db->query($sql);
+	    	if($city != "")
+	    	{
+	    		$sql = $sql . " WHERE City = '$city'";
 
-	    if ($name->num_rows > 0)
-		{
-	        //output of each db row
-	        $out = $out . '<tr>';
-	        $count = 0;
-
-	        while ($row = $name->fetch_assoc())
-  			{
-		        $out = $out . '<td> <a data-toggle="modal" href="viewOtherPlayer.php?user=' . $row['Username'] . '"> 
-		            <img src="pictures/Male-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
-		             <h4>' . $row['Username'] . '</h4></a></td>';
-
-    			$count = $count + 1;
-
-    			if ($count == 4)
+	    		if ($state != "Default")
+	    		{
+	    			$sql = $sql . " AND State = '$state'";
+	    		}
+	    		if ($game != "Default")
     			{
-        			$count = 0;
-        			$out = $out . '</tr> <tr>';
+    				$sql = $sql . " AND GameID = '$game'";
     			}
-        	}
+	    		if ($location != "Default")
+				{
+					$sql = $sql . " AND MeetingPlace = '$location'";
+				}
+				if ($day != "Default")
+				{
+					$sql = $sql . " AND (Day1 = '$day' OR Day2 = '$day' OR Day3 = '$day')";
+				}
+				if ($time != "Default")
+				{
+					$sql = $sql . " AND (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
+				}
+	    	}
+	    	elseif ($state != "Default")
+    		{
+    			$sql = $sql . " WHERE State = '$state'";
+
+    			if ($game != "Default")
+    			{
+    				$sql = $sql . " AND GameID = '$game'";
+    			}
+	    		if ($location != "Default")
+				{
+					$sql = $sql . " AND MeetingPlace = '$location'";
+				}
+				if ($day != "Default")
+				{
+					$sql = $sql . " AND (Day1 = '$day' OR Day2 = '$day' OR Day3 = '$day')";
+				}
+				if ($time != "Default")
+				{
+					$sql = $sql . " AND (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
+				}
+    		}
+    		elseif ($game != "Default")
+			{
+				$sql = $sql . " WHERE GameID = '$game'";
+
+				if ($location != "Default")
+				{
+					$sql = $sql . " AND MeetingPlace = '$location'";
+				}
+				if ($day != "Default")
+				{
+					$sql = $sql . " AND (Day1 = '$day' OR Day2 = '$day' OR Day3 = '$day')";
+				}
+				if ($time != "Default")
+				{
+					$sql = $sql . " AND (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
+				}
+			}
+			elseif ($location != "Default")
+			{
+				$sql = $sql . " WHERE MeetingPlace = '$location'";
+
+				if ($day != "Default")
+				{
+					$sql = $sql . " AND (Day1 = '$day' OR Day2 = '$day' OR Day3 = '$day')";
+				}
+				if ($time != "Default")
+				{
+					$sql = $sql . " AND (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
+				}
+			}
+			elseif ($day != "Default")
+			{
+				$sql = $sql . " WHERE (Day1 = '$day' OR Day2 = '$day' OR Day3 = '$day')";
+
+				if ($time != "Default")
+				{
+					$sql = $sql . " AND (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
+				}
+			}
+			elseif ($time != "Default")
+			{
+				$sql = $sql . " WHERE (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
+			}
+
+			echo $sql;
+
+	    $name = mysqli_query($db, $sql);
+
+	    if(!$name)
+	    {
+	    	echo mysqli_error($db);
 	    }
 
-	    return $out;
+		if ($name->num_rows > 0)
+		{
+			//output of each db row
+			$out = $out . '<tr>';
+			$count = 0;
+
+			while ($row = $name->fetch_assoc())
+			{
+				$out =  $out . '<td> <a href="viewOtherGroup.php?Name=' . $row['Name'] . '"> 
+				    <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
+				     <h4 class="h4Group">' . $row['Name'] . '</h4></a></td>';
+
+				$count = $count + 1;
+
+				if ($count == 4)
+				{
+				    $count = 0;
+				    $out = $out . '</tr> <tr>';
+				}
+			}
+		}
+
+		return $out; 
 	}
-	*/
+	
 
 	// diplays the default search, right now it is just all users in the DB. Might set up a player default search later
 	function displayWithoutSearch()
@@ -103,7 +211,7 @@
 
 			while ($row = $name->fetch_assoc())
 			{
-				$out =  $out . '<td> <a href="viewOtherGroup.php"?groupName=' . $row['Name'] . '"> 
+				$out =  $out . '<td> <a href="viewOtherGroup.php?Name=' . $row['Name'] . '"> 
 				    <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
 				     <h4 class="h4Group">' . $row['Name'] . '</h4></a></td>';
 

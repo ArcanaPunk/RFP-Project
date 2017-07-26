@@ -227,9 +227,22 @@
                   <td>
                     <select name="location" id="meet" class="form-control">
                       <option value="Default">Select a Place</option>
-                      <option value="home">At a player's place.</option>
-                      <option value="gameStore">At a game store.</option>
-                      <option value="online">Online</option>
+                      <option value="At a player's place.">At a player's place.</option>
+                      <option value="At a game store.">At a game store.</option>
+                      <option value="In person, but no preference.">In person, but no preference.</option>
+                      <option value="Online">Online</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>Game Master:</label></td>
+                  <td>
+                    <select name="canGM" id="canGM" class="form-control">
+                      <option value="Default">Select an Option</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                      <option value="No Preference">No Preference</option>                      
                     </select>
                   </td>
                 </tr>

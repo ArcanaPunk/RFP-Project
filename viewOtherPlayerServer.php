@@ -25,7 +25,7 @@
 
 	$playerUserName = $_GET['user'];
 
-	$sql = "SELECT FirstName, City, State, Country, Game, CanGM, MeetingPlace, Day1, Time1, Day2, Time2, Day3, Time3, Description FROM user WHERE Username='$playerUserName'";
+	$sql = "SELECT * FROM user WHERE Username='$playerUserName'";
 
 	$playerQuery = mysqli_query($db, $sql);
 
@@ -87,11 +87,15 @@
                 </tr>
                 <tr>
                   <td>Location:</td>
-                  <td> ' . $city . ', ' . $state . ' | ' . $country . '</td>
+                  <td> ' . $city . ', ' . $state . '</td>
                 </tr>
                 <tr>
                   <td>Looking to play:</td>
                   <td> ' . $x['Game'] . '</td>
+                </tr>
+                <tr>
+                  <td>I want to play at:</td>
+                  <td> ' . $meetingPlace . '</td>
                 </tr>
                 <tr>
                   <td>Times I can play:</td>

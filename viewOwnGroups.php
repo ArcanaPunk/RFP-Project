@@ -127,7 +127,7 @@
     
     </div>
 
-    <!-- Center Body -->
+    <!-- Center Body --> 
     <div class="col-sm-8 text-left">
 
       <h2>Browse Groups:</h2>
