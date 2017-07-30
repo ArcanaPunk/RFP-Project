@@ -199,7 +199,7 @@
 		//Connect to the database
 		$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
 
-		$sql = "SELECT Name FROM groups";
+		$sql = "SELECT GroupID, Name FROM groups";
 
 		$name = $db->query($sql);
 
@@ -211,7 +211,7 @@
 
 			while ($row = $name->fetch_assoc())
 			{
-				$out =  $out . '<td> <a href="viewOtherGroup.php?Name=' . $row['Name'] . '"> 
+				$out =  $out . '<td> <a href="viewOtherGroup.php?GroupID=' . $row['GroupID'] . '"> 
 				    <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
 				     <h4 class="h4Group">' . $row['Name'] . '</h4></a></td>';
 

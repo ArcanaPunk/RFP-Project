@@ -22,9 +22,9 @@
 	//Connect to the database
 	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
 
-	$groupName = urldecode($_GET['Name']);
+	$ID = urldecode($_GET['GroupID']);
 
-	$sql = "SELECT * FROM groups WHERE Name = '$groupName'";
+	$sql = "SELECT * FROM groups WHERE GroupID = '$ID'";
 
 	$groupQuery = mysqli_query($db, $sql);
 
@@ -40,6 +40,7 @@
       
   		while ($row = $groupQuery->fetch_assoc())
   		{
+        $name = $row['Name'];
         $creator = $row['UserID'];
         $city = $row['City'];
         $state = $row['State'];
@@ -88,7 +89,7 @@
           <div class="row">
             <div class="col-md-3 col-lg-3 " align="center"> 
               <img alt="Group Pic" src="pictures/Group-Generic-Photo.jpg" style="height: 75%; width: 75%"><br/>
-              <h3>' . $groupName . '</h3>
+              <h3>' . $name . '</h3>
             </div>
             
             <div class= "col-md-9 col-lg-9">

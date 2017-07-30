@@ -256,6 +256,7 @@
                     <option value="Afternoon">Afternoon</option>
                     <option value="Evening">Evening</option>
                     <option value="Night">Night</option>
+                    <option value="Anytime">Anytime</option>
                   </select>
                 </td>
               </tr>
@@ -283,6 +284,7 @@
                     <option value="Afternoon">Afternoon</option>
                     <option value="Evening">Evening</option>
                     <option value="Night">Night</option>
+                    <option value="Anytime">Anytime</option>
                   </select>
                 </td>
               </tr>
@@ -298,6 +300,7 @@
                     <option value="Thursday">Thursday</option>
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
+
                   </select> 
                 </td>
               </tr>
@@ -310,6 +313,7 @@
                   <option value="Afternoon">Afternoon</option>
                   <option value="Evening">Evening</option>
                   <option value="Night">Night</option>
+                  <option value="Anytime">Anytime</opt
                   </select>
                 </td>
               </tr>
@@ -344,7 +348,7 @@
 
 <!-- Footer -->
 <footer class="container-fluid text-center">
-  <p>Copywrite &copy; Roll For Party 2017</p>
+  <p>Copyright &copy; Roll For Party 2017</p>
 </footer>
 
 </body>

@@ -168,7 +168,7 @@
 </div>
 
 <footer class="container-fluid text-center">
-  <p>Copywrite &copy; Roll For Group 2017</p>
+  <p>Copyright &copy; Roll For Group 2017</p>
 </footer>
 
 </body>

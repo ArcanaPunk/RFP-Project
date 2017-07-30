@@ -140,7 +140,6 @@
     	$firstname = "";
 		$city = "";
 		$state = "";
-		$country = "";
 		$game = "";
 		$canGM = "";
 		$meetingPlace = "";
@@ -169,7 +168,6 @@
         	$email = $row['Email'];
 	    	$city = $row['City'];
 	    	$state = $row['State'];
-	    	$country = $row['Country'];
 		    $game = $row['Game'];
 		    $gameSQL = "SELECT Game FROM game WHERE GameID = '$game'";
 		    $canGM = $row['CanGM'];

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.1
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 26, 2017 at 03:38 AM
--- Server version: 5.7.18-log
--- PHP Version: 7.2.0alpha2
+-- Host: 127.0.0.1
+-- Generation Time: Jul 31, 2017 at 12:11 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -73,7 +73,10 @@ INSERT INTO `groups` (`GroupID`, `Name`, `UserID`, `City`, `State`, `GameID`, `M
 (13, 'Test Group 2', 26, 'Austin', 'TX', 2, '', 'Sunday', 'Morning', 'Sunday', 'Morning', 'Sunday', 'Evening', 'We are Test Group 2.'),
 (14, 'Test Group 2B', 26, 'Austin', 'TX', 2, '', 'Sunday', 'Evening', 'Thursday', 'Evening', 'Thursday', 'Afternoon', 'We are Test Group 2B.'),
 (15, 'Test Group 5', 28, 'Wilmington', 'NC', 1, '', 'Monday', 'Afternoon', 'Default', 'Default', 'Default', 'Default', 'We are Test Group 5.'),
-(16, 'Test Group 6', 29, 'Foxboro', 'MA', 2, '', 'Monday', 'Morning', 'Wednesday', 'Night', 'Default', 'Default', 'We are Test Group 6.');
+(16, 'Test Group 6', 29, 'Foxboro', 'MA', 2, '', 'Monday', 'Morning', 'Wednesday', 'Night', 'Default', 'Default', 'We are Test Group 6.'),
+(17, 'Mason\'s Group', 34, 'Boston', 'MA', 1, '', 'Sunday', 'Night', 'Default', 'Default', 'Default', 'Default', 'Looking to Fill this group with 5 people max!'),
+(18, 'Test', 34, 'Boston', 'MA', 1, 'At a player\'s place.', 'Monday', 'Morning', 'Default', 'Default', 'Default', 'Default', 'Test'),
+(19, 'TestG', 35, 'Boston', 'MA', 1, 'At a game store.', 'Sunday', 'Night', 'Sunday', 'Morning', 'Sunday', 'Evening', 'TestG');
 
 -- --------------------------------------------------------
 
@@ -118,7 +121,9 @@ INSERT INTO `user` (`UserID`, `Username`, `Email`, `FirstName`, `LastName`, `Pas
 (30, 'TestUser7', 'testuser7@test.com', 'Test', 'User7', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'Boston', 'MA', '2017-07-26 03:31:50', 1, 'Yes', 'At a game store.', 'Sunday', 'Anytime', 'Default', 'Default', 'Default', 'Default', NULL, 'I am Test User 7.'),
 (31, 'TestUser8', 'testuser8@test.com', 'Test', 'User8', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'Derry', 'MA', '2017-07-26 03:33:09', 2, 'Yes', 'At a player\'s place.', 'Sunday', 'Afternoon', 'Default', 'Default', 'Default', 'Default', NULL, 'I am Test User 8.'),
 (32, 'TestUser9', 'testuser9@test.com', 'Test', 'User9', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'Boston', 'MA', '2017-07-26 03:34:49', 1, 'No', 'At a game store.', 'Thursday', 'Anytime', 'Default', 'Default', 'Default', 'Default', NULL, 'I am Test User 9.'),
-(33, 'TestUser10', 'testuser10@test.com', 'Test', 'User10', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'Austin', 'TX', '2017-07-26 03:35:56', 2, 'No Preference', 'At a game store.', 'Saturday', 'Morning', 'Default', 'Default', 'Default', 'Default', NULL, 'I am Test User 10.');
+(33, 'TestUser10', 'testuser10@test.com', 'Test', 'User10', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'Austin', 'TX', '2017-07-26 03:35:56', 2, 'No Preference', 'At a game store.', 'Saturday', 'Morning', 'Default', 'Default', 'Default', 'Default', NULL, 'I am Test User 10.'),
+(34, 'Test', 'awh.computron@gmail.com', 'Test', 'User', 'd9b5f58f0b38198293971865a14074f59eba3e82595becbe86ae51f1d9f1f65e', 'Boston', 'MA', '2017-07-26 12:50:01', 1, 'No', 'At a player\'s place.', 'Sunday', 'Night', 'Default', 'Default', 'Default', 'Default', NULL, 'I am a Test User.'),
+(35, 'Testman', 'testman@test.com', 'Test', 'Man', 'ecd71870d1963316a97e3ac3408c9835ad8cf0f3c1bc703527c30265534f75ae', 'Boston', 'MA', '2017-07-30 22:01:12', 1, 'Yes', 'At a player\'s place.', 'Sunday', 'Night', 'Default', 'Default', 'Default', 'Default', NULL, 'Test');
 
 --
 -- Indexes for dumped tables
@@ -155,12 +160,12 @@ ALTER TABLE `game`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `GroupID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `GroupID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;COMMIT;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

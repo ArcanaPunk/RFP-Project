@@ -74,7 +74,7 @@
 
 		if (count($errors) == 0) 
 		{
-			$grpSql = "INSERT INTO groups (Name, UserID, City, State, GameID, MeetingPlace, Day1, Time1, Day2, Time2, Day3, Time3, Description) VALUES ('$Name', '$UserID', '$city', '$state', '$GameID', '$MeetingPlace', '$Day1', '$Day1Time', '$Day2', '$Day2Time', '$Day3', '$Day3Time', '$Description')";
+			$grpSql = "INSERT INTO groups (Name, UserID, City, State, GameID, MeetingPlace, Day1, Time1, Day2, Time2, Day3, Time3, Description) VALUES ('$Name', '$UserID', '$city', '$state', '$GameID', '$Location', '$Day1', '$Day1Time', '$Day2', '$Day2Time', '$Day3', '$Day3Time', '$Description')";
 			$res = mysqli_query($db, $grpSql);
 			if (!$res) 
 			{
