@@ -119,7 +119,7 @@
     </div>
 
     <div class="col-sm-8 text-left">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <form method="post" action="login.php">
           <fieldset>
             <legend> <h2>Login</h2> </legend>
@@ -146,7 +146,7 @@
         </form>
       </div>
       
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <fieldset>
           <legend><h2>Sign Up</h2></legend>
 
@@ -168,7 +168,7 @@
 </div>
 
 <footer class="container-fluid text-center">
-  <p>Copywrite &copy; Roll For Group 2017</p>
+  <p>Copyright &copy; Roll For Group 2017</p>
 </footer>
 
 </body>

@@ -169,9 +169,6 @@
 
     <!-- Left Sidebar -->
     <div class="col-sm-2 sidenav" style="height:100%">
-
-      <h3><a href="#">Edit Profile</a></h3>
-      Once profile editing is set up add it here.
   
     </div>
 
@@ -215,7 +212,7 @@
 
 <!-- Footer -->
 <footer class="container-fluid text-center">
-  <p>Copywrite &copy; Roll For Party 2017</p>
+  <p>Copyright &copy; Roll For Party 2017</p>
 </footer>
 
 </body>

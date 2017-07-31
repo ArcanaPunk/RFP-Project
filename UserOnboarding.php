@@ -155,9 +155,10 @@
                   <td width="30%"> <label>Willing to be the Game Master?</label></td>
                   <td>
                     <select name="gm" id="canGM" class="form-control">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
-                      <option value="maybe">No Preference</option>                      
+                      <option value="Default">Select an Option</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                      <option value="No Preference">No Preference</option>                      
                     </select>
                   </td>
                 </tr>
@@ -165,13 +166,13 @@
                 <!-- Form box for Metting Place -->
                 <tr height="40">
                   <td width="30%"> <label>Where do you want to meet:</label> </td>
-                  <td>
-                    <select name="Location" id="meet" class="form-control">
+                  <td> 
+                    <select name="Location" id="meetAt" class="form-control">
                       <option value="Default">Select a Place</option>
-                      <option value="home">At a player's place.</option>
-                      <option value="gameStore">At a game store.</option>
-                      <option value="local">In person, but no preference.</option>
-                      <option value="online">Online</option>
+                      <option value="At a player's place.">At a player's place.</option>
+                      <option value="At a game store.">At a game store.</option>
+                      <option value="In person, but no preference.">In person, but no preference.</option>
+                      <option value="Online">Online</option>
                     </select>
                   </td>
                 </tr>
@@ -295,7 +296,6 @@
 
                 </table>
                 
-
           </fieldset>
         </form>
     </div>
@@ -310,7 +310,7 @@
 
 <!-- Footer -->
 <footer class="container-fluid text-center">
-  <p>Copywrite &copy; Roll For Party 2017</p>
+  <p>Copyright &copy; Roll For Party 2017</p>
 </footer>
 
 </body>

@@ -8,7 +8,7 @@
   $username = $_SESSION['username'];
 
   //Connect to the database
-  $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+  $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
   //Drop down list for Games
   $GameQuery = "SELECT * FROM `Game`";
@@ -19,7 +19,7 @@
 
   while($row = mysqli_fetch_array($GameResult))
   {
-    $id=$row["GameID"];
+    $id=$row["GameID"]; 
       $game=$row["Game"];
       $options = $options."<option value = ".$id.">".$game."</option>";
   }
@@ -36,7 +36,7 @@
     $username = $_SESSION['username'];
 
   //Connect to the database
-    $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+    $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
   //Get the UserID based off the current session
     $userIDSql = "SELECT UserID FROM User WHERE Username ='$username'";
@@ -51,7 +51,7 @@
           $UserID = $row['UserID'];
         }
 
-    $sql = "SELECT Name FROM groups WHERE UserID = '$UserID'";
+    $sql = "SELECT GroupID, Name FROM groups WHERE UserID = '$UserID'";
 
     $name = $db->query($sql);
 
@@ -63,7 +63,7 @@
 
       while ($row = $name->fetch_assoc())
       {
-        $out =  $out . '<td> <a href="viewOtherGroup.php"?groupName=' . $row['Name'] . '"> 
+        $out =  $out . '<td> <a href="viewOtherGroup.php?GroupID=' . $row['GroupID'] . '"> 
             <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
              <h4 class="h4Group">' . $row['Name'] . '</h4></a></td>';
 

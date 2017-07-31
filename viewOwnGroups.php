@@ -127,7 +127,7 @@
     
     </div>
 
-    <!-- Center Body -->
+    <!-- Center Body --> 
     <div class="col-sm-8 text-left">
 
       <h2>Browse Groups:</h2>
@@ -155,7 +155,7 @@
 
 <!-- Footer -->
 <footer class="container-fluid text-center">
-  <p>Copywrite &copy; Roll For Party 2017</p>
+  <p>Copyright &copy; Roll For Party 2017</p>
 </footer>
 
 </body>

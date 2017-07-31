@@ -134,7 +134,7 @@
     <!-- Left Sidebar -->
     <div class="col-sm-2 sidenav" style="height:100%" align="left">
 
-      <form id="updateSearch">
+      <form id="updateSearch" method="post">
         <fieldset>
 
           <legend>Search Groups</legend>
@@ -150,7 +150,62 @@
                 <!-- Form box for State -->
                 <tr height="40">
                   <td width="30%"> <label>State:</label> </td>
-                  <td><input type="text" name="state" id="state" value="Full State Name" class="form-control"/></td>
+                  <td>
+                    <select name="state" id="state" class="form-control">
+                      <option value="Default">Choose a State.</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="DC">District Of Columbia</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                      <option value="IA">Iowa</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="ME">Maine</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WY">Wyoming</option>
+                    </select>
+                  </td>
                 </tr>
 
                 <!-- Form box for Game, is filled from the DB -->
@@ -158,6 +213,7 @@
                   <td width="30%"> <label>Game:</label> </td>
                   <td>
                     <select name="GameID" id="game" class="form-control">
+                      <option value="Default">Select a Game</option>
                       <?php echo $options;?>
                     </select>
                   </td>
@@ -166,22 +222,23 @@
                 <!-- Form box for Metting Place -->
                 <tr height="40">
                   <td width="30%"> <label>Meet at:</label> </td>
-                  <td>
-                    <select name="Location" id="meet" class="form-control">
+                  <td> 
+                    <select name="location" id="meetAt" class="form-control">
                       <option value="Default">Select a Place</option>
-                      <option value="home">At a player's place.</option>
-                      <option value="gameStore">At a game store.</option>
-                      <option value="online">Online</option>
+                      <option value="At a player's place.">At a player's place.</option>
+                      <option value="At a game store.">At a game store.</option>
+                      <option value="In person, but no preference.">In person, but no preference.</option>
+                      <option value="Online">Online</option>
                     </select>
                   </td>
                 </tr>
               
                 <!-- Form box for Day -->
                 <tr height="40">
-                  <td width="30%"> <label>Day:</label> </td>
+                  <td width="30%"> <label>Select a Day:</label> </td>
                   <td> 
                     <select name="day" id="day" class="form-control">
-                      <option value="Default">Day</option>
+                      <option value="Default">Select a Day</option>
                       <option value="Sunday">Sunday</option>
                       <option value="Monday">Monday</option>
                       <option value="Tuesday">Tuesday</option>
@@ -203,6 +260,7 @@
                       <option value="Afternoon">Afternoon</option>
                       <option value="Evening">Evening</option>
                       <option value="Night">Night</option>
+                      <option value="Anytime">Anytime</option>
                     </select>
                   </td>
                 </tr>
@@ -233,16 +291,6 @@
             echo $display;
 
           ?>
-
-          <!--
-          <td colspan="2" style="text-align: left">
-            <a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Previous</a>
-          </td>
-          <td colspan="2" style="text-align: right">
-            <a href="#"><span class="glyphicon glyphicon-arrow-right"></span> Next</a>
-          </td>
-        </tr>
-        -->
       </table>
 
     </div>
@@ -257,7 +305,7 @@
 
 <!-- Footer -->
 <footer class="container-fluid text-center">
-  <p>Copywrite &copy; Roll For Party 2017</p>
+  <p>Copyright &copy; Roll For Party 2017</p>
 </footer>
 
 </body>
