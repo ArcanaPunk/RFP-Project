@@ -323,7 +323,7 @@
               <tr>
                 <td colspan="2"> <textarea class="form-control" rows="10" name="desc" id="desc" maxlength="500" style="resize: none;"></textarea> </td>
               </tr>
-              <tr height="40">
+              <tr height="155">
                 <td width="50%" align="center"> <button type="submit" name="submitGroup" class="btn">Submit</button> </td>
                 <td width="50%" align="center"> <button type="reset" class="btn">Reset</button> </td>
               </tr>

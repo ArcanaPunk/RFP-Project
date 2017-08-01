@@ -169,9 +169,6 @@
 
     <!-- Left Sidebar -->
     <div class="col-sm-2 sidenav" style="height:100%">
-
-      <h3><a href="#">Edit Profile</a></h3>
-      Once profile editing is set up add it here.
   
     </div>
 

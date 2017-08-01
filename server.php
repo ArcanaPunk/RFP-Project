@@ -10,7 +10,7 @@
 	$errors = array();
 
 	//Connect to the database
-	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 	//if the submit button is fired
 	if(isset($_POST['submit'])) {
@@ -102,7 +102,7 @@
     {
 
         //Connect to the database
-        $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+        $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
         $sql = "SELECT Username FROM user";
 
@@ -152,7 +152,7 @@
 		$description = "";
 
         //Connect to the database
-        $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+        $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
         $username = $_SESSION['username'];
         $query = "SELECT * FROM user WHERE Username='$username'";
         $userquery = mysqli_query($db, $query);

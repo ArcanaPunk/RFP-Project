@@ -15,7 +15,7 @@
 	$username = $_SESSION['username'];
 
 	//Connect to the database
-	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 	//Drop down list for Games
 	$GameQuery = "SELECT * FROM `Game`";
@@ -55,14 +55,14 @@
 		$display = displayWithoutSearch();
 	}
 
-	// displays the stuff after a search
+	// displays the fields after a search
 	
 	function displayWithSearch($city, $state, $game, $location, $day, $time)
 	{
 		$out = "";			
 
 	    //Connect to the database
-	    $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+	    $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 	    $sql = "SELECT Name FROM groups";
 
@@ -156,7 +156,7 @@
 				$sql = $sql . " WHERE (Time1 = '$time' OR Time2 = '$time' OR Time3 = '$time')";
 			}
 
-			echo $sql;
+			//echo $sql;
 
 	    $name = mysqli_query($db, $sql);
 
@@ -197,7 +197,7 @@
 		$out = "";
 
 		//Connect to the database
-		$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+		$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 		$sql = "SELECT GroupID, Name FROM groups";
 

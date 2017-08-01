@@ -18,7 +18,7 @@
 	$username = $_SESSION['username'];
 
 	//Connect to the database
-	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 	//Drop down list for Games
 	$GameQuery = "SELECT * FROM `Game`";

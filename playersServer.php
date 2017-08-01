@@ -15,7 +15,7 @@
 	$username = $_SESSION['username'];
 
 	//Connect to the database
-	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 	//Drop down list for Games
 	$GameQuery = "SELECT * FROM `Game`";
@@ -56,13 +56,13 @@
 		$display = displayWithoutSearch();
 	}
 
-	// displays the stuff after a search
+	// displays the fields after a search
 	function displayWithSearch($city, $state, $game, $canGM, $location, $day, $time)
 	{
 		$out = "";			
 
 		//Connect to the database
-	    $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+	    $db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 	    $sql = "SELECT Username FROM user";
 
@@ -227,7 +227,7 @@
 		$out = "";
 
 		//Connect to the database
-		$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+		$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 		$sql = "SELECT Username FROM user";
 

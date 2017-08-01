@@ -2,7 +2,6 @@
 	session_start();
 
 	$Name = "";
-	//$UserID =0;
 	$city = "";
 	$state = "";
 	$GameID = "";
@@ -19,7 +18,7 @@
 	$errors = array();
 	
 	//Connect to the database
-	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 	//grab current session username
 	$username = $_SESSION['username'];
@@ -82,9 +81,9 @@
 			}
 			else
 			{
-				header('location: viewOwnGroups.php'); //Take to onboarding page after login
+				header('location: viewOwnGroups.php'); //Take to viewOwnGroups page after creation
 			}
-			//header('location: viewOwnGroups.php'); //Take to mygroups after creation
+			
 		}
 	}
 

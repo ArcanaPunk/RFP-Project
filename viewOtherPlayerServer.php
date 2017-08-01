@@ -5,7 +5,6 @@
   $firstname = "";
   $city = "";
   $state = "";
-  $country = "";
   $game = "";
   $canGM = "";
   $meetingPlace = "";
@@ -18,7 +17,7 @@
   $description = "";
 
 	//Connect to the database
-	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforgroup') or die($db);
+	$db = mysqli_connect('localhost', 'root', 'P@55w0rd', 'rollforparty') or die($db);
 
 	//grab current session username
 	$username = $_SESSION['username'];
@@ -34,7 +33,6 @@
     	$firstname = $row['FirstName'];
     	$city = $row['City'];
     	$state = $row['State'];
-    	$country = $row['Country'];
       $game = $row['Game'];
       $gameSQL = "SELECT Game FROM game WHERE GameID = '$game'";
       $canGM = $row['CanGM'];

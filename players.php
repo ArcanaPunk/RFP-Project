@@ -304,16 +304,7 @@
           echo $display;
   
         ?>
-        <!--
-        <tr>
-         <td colspan="2" style="text-align: left">
-            <a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Previous</a>
-          </td>
-          <td colspan="2" style="text-align: right">
-            <a href="#"><span class="glyphicon glyphicon-arrow-right"></span> Next</a>
-          </td>
-        </tr>
-        -->
+
       </table>
     </div>
 
